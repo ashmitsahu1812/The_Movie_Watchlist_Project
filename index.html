@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Watchlist</title>
+</head>
+
+<body>
+
+  <header id="page-header">
+    <h1 id="page-title"> Movie Watchlist</h1>
+  </header>
+
+  <div id="main-container">
+
+    <div id="movie-search-section">
+      <h2 id="search-heading">Search Movies</h2>
+
+      <div id="search-bar-wrapper">
+        <input type="text" id="movie-search-input" placeholder="Type a movie name..."
+          onkeyup="if(event.key === 'Enter') searchMovies()" />
+        <button id="movie-search-button" onclick="searchMovies()">Search</button>
+      </div>
+
+      <div id="movie-search-results">
+        <p>Search for a movie to get started!</p>
+      </div>
+    </div>
+
+    <div id="my-watchlist-section">
+      <h2 id="watchlist-heading">My Watchlist</h2>
+
+      <button id="random-movie-button" onclick="pickRandom()">🎲 Random Movie Night</button>
+
+      <div id="watchlist-movies-container">
+        <p>Your watchlist is empty. Add some movies!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="random-movie-modal">
+    <div id="random-movie-modal-box">
+      <h2 id="random-modal-heading">Tonight's Pick!</h2>
+      <img id="random-movie-poster" src="" alt="Movie Poster" />
+      <h3 id="random-movie-title"></h3>
+      <p id="random-movie-year"></p>
+      <button id="close-modal-button" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
