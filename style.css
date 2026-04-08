@@ -1,1 +1,249 @@
-/* No styles - plain HTML */
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-alt: #eef3f9;
+  --text: #17202a;
+  --muted: #627186;
+  --primary: #1f6feb;
+  --primary-dark: #1557b0;
+  --success: #1f9d62;
+  --danger: #d1495b;
+  --border: #d6dfeb;
+  --shadow: 0 14px 35px rgba(20, 34, 61, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 45%, #f4f7fb 100%);
+  color: var(--text);
+}
+
+#page-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+#page-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+#main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+#movie-search-section,
+#my-watchlist-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+#search-heading,
+#watchlist-heading,
+#random-modal-heading {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+#search-bar-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+#movie-search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#movie-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.14);
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#movie-search-button,
+#close-modal-button {
+  background: var(--primary);
+  color: #fff;
+}
+
+#movie-search-button:hover,
+#close-modal-button:hover {
+  background: var(--primary-dark);
+}
+
+#random-movie-button {
+  width: 100%;
+  margin-bottom: 18px;
+  background: #111827;
+  color: #fff;
+}
+
+#random-movie-button:hover {
+  background: #1f2937;
+}
+
+#movie-search-results,
+#watchlist-movies-container {
+  display: grid;
+  gap: 14px;
+}
+
+.movie-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-alt);
+}
+
+.movie-card img {
+  width: 78px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #d9e3ef;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-info h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.movie-info p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.add-btn {
+  background: var(--success);
+  color: #fff;
+}
+
+.add-btn:hover {
+  opacity: 0.92;
+}
+
+.remove-btn {
+  background: #ffe3e7;
+  color: var(--danger);
+}
+
+.remove-btn:hover {
+  background: #ffd5dc;
+}
+
+#movie-search-results > p,
+#watchlist-movies-container > p {
+  margin: 0;
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--surface-alt);
+  color: var(--muted);
+  text-align: center;
+}
+
+#random-movie-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+#random-movie-modal.show {
+  display: flex;
+}
+
+#random-movie-modal-box {
+  width: min(100%, 360px);
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+#random-movie-poster {
+  width: 180px;
+  max-width: 100%;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+#random-movie-title {
+  margin: 0 0 8px;
+}
+
+#random-movie-year {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  #page-header {
+    padding-top: 28px;
+  }
+
+  #main-container {
+    padding: 16px;
+  }
+
+  #search-bar-wrapper {
+    flex-direction: column;
+  }
+
+  #movie-search-button {
+    width: 100%;
+  }
+
+  .movie-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .movie-info {
+    width: 100%;
+  }
+}
